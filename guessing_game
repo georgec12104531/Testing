@@ -1,0 +1,36 @@
+class Guessing_Game
+  attr_accessor :number, :count
+
+  def initialize
+    @number = rand(0..100)
+    @count = 0 
+    
+  end
+
+  def play
+    input = 101
+    until input == number
+      print "Please write a guess the magic number:"
+      input = gets.chomp
+      input = Integer(input)
+      
+      if input > number
+        print "Too damn high!\n"
+      elsif input < number 
+        print "Too damn low!\n"
+      end
+      @count += 1 
+    end
+    conclude
+  end
+
+  def conclude
+    puts "That is the right number!!!\nYou made #{count} movies\nThanks for playing!!!"
+  end
+
+end
+
+
+game = Guessing_Game.new 
+p game 
+game.play
